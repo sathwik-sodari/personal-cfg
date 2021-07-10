@@ -6,3 +6,6 @@ team*.zip
 *.key
 *.ovpn
 node_modules/
+.env
+/node_modules/
+package-lock.json
