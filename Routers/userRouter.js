@@ -68,7 +68,7 @@ userRouter.post('/register', expressAsyncHandler (async(req, res) => {
         city: createdUser.city,
         state: createdUser.state,
         gender: createdUser.gender,
-        pincode: req.body.pincode,
+        pincode: createdUser.pincode,
         phoneNumber: createdUser.phoneNumber,
         hobbies: createdUser.hobbies,
         careerPref: createdUser.careerPref,
@@ -97,17 +97,17 @@ userRouter.put(
       if (user) {
         user.name = req.body.name || user.name;
         user.email = req.body.email || user.email;
-        fulladdress = req.body.fulladdress || user;
-        city = req.body.city || user.city;
-        state = req.body.state || user.state;
-        gender = req.body.gender || user.gender;
-        pincode = req.body.pincode || user.pincode;
-        phoneNumber = req.body.phoneNumber || user.phonenumber;
-        hobbies = req.body.hobbies || user.hobbies;
-        careerPref = req.body.careerPref || user.careerPref;
-        firstLang =req.body.firstLang || user.firstLang;
-        secondLang = req.body.secondLang || user.secondLang;
-        genderPref = req.body.genderPref || user.genderPref;
+        user.fulladdress = req.body.fulladdress || user;
+        user.city = req.body.city || user.city;
+        user.state = req.body.state || user.state;
+        user.gender = req.body.gender || user.gender;
+        user.pincode = req.body.pincode || user.pincode;
+        user.phoneNumber = req.body.phoneNumber || user.phonenumber;
+        user.hobbies = req.body.hobbies || user.hobbies;
+        user.careerPref = req.body.careerPref || user.careerPref;
+        user.firstLang =req.body.firstLang || user.firstLang;
+        user.secondLang = req.body.secondLang || user.secondLang;
+        user.genderPref = req.body.genderPref || user.genderPref;
         if (req.body.password) {
           user.password = bcrypt.hashSync(req.body.password, 8);
         }
@@ -116,6 +116,17 @@ userRouter.put(
           _id: updatedUser._id,
           name: updatedUser.name,
           email: updatedUser.email,
+          fulladdress: updatedUser.fulladdress,
+          city: updatedUser.city,
+          state: updatedUser.state,
+          gender: updatedUser.gender,
+          pincode: updatedUser.pincode,
+          phoneNumber: updatedUser.phoneNumber,
+          hobbies: updatedUser.hobbies,
+          careerPref: updatedUser.careerPref,
+          firstLang:updatedUser.firstLang,
+          secondLang: updatedUser.secondLang,
+          genderPref: updatedUser.genderPref,
           isAdmin: updatedUser.isAdmin,
           token: generateToken(updatedUser),
         });
@@ -161,6 +172,17 @@ userRouter.put(
       if (user) {
         user.name = req.body.name || user.name;
         user.email = req.body.email || user.email;
+        user.fulladdress = req.body.fulladdress || user;
+        user.city = req.body.city || user.city;
+        user.state = req.body.state || user.state;
+        user.gender = req.body.gender || user.gender;
+        user.pincode = req.body.pincode || user.pincode;
+        user.phoneNumber = req.body.phoneNumber || user.phonenumber;
+        user.hobbies = req.body.hobbies || user.hobbies;
+        user.careerPref = req.body.careerPref || user.careerPref;
+        user.firstLang =req.body.firstLang || user.firstLang;
+        user.secondLang = req.body.secondLang || user.secondLang;
+        user.genderPref = req.body.genderPref || user.genderPref;
         user.isAdmin = Boolean(req.body.isAdmin);
         const updatedUser = await user.save();
         res.send({ message: 'User Updated', user: updatedUser });

@@ -17,6 +17,7 @@ const userSchema  = new mongoose.Schema(
         secondLang: {type:String, required: true},
         genderPref: {type:String, required: true},
         isAdmin: { type: Boolean, default: false, required: true},
+        mentor: { type: mongoose.Schema.Types.ObjectId, ref: 'Mentor', required: true },
     },
     {
         timestamps: true,
