@@ -249,6 +249,16 @@ userRouter.put(
     // console.log(dupMentors)
     res.send({mentors:dupMentors})
 
-  }))
+  }));
+
+  userRouter.put('/choose/:id', isAuth,expressAsyncHandler(async (req, res) =>{
+    const userId = req.params.id;
+    const user = await User.findById(req.params.id);
+    const mentorId = req.body._id;
+    const mentor = await Mentor.findById(req.body._id);
+    user.mentor = mentorId;
+    mentor.mentee = userId;
+    res.send(user);
+  }));
 
 export default userRouter;
