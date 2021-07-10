@@ -5,18 +5,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+    "start": "nodemon --watch --exec node --experimental-modules server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prince310501/cfgDemo76.git"
+    "url": "git+https://github.com/cfg2india2021/team-76.git" 
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/prince310501/cfgDemo76/issues"
+    "url": "https://github.com/cfg2india2021/team-76/issues"
   },
-  "homepage": "https://github.com/prince310501/cfgDemo76#readme",
+  "homepage": "https://github.com/cfg2india2021/team-76#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",

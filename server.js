@@ -2,7 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRouter from './Routers/userRouter.js';
 import dotenv from 'dotenv';
-
+import applicantRouter from './Routers/applicantRouter.js';
+import mentorRouter from './Routers/mentorRouter.js';
 dotenv.config();
 
 const app = express();
@@ -20,6 +21,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/users', userRouter);
+app.use('/api/mentors', mentorRouter);
+app.use('/api/applicants', applicantRouter);
 
 app.use((err, req, res, next) => {
     res.status(500).send({message: err.message});

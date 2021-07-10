@@ -1,10 +1,18 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import expressAsyncHandler from 'express-async-handler';
-import Applicant from '../models/applicationModel';
-import { generateToken } from '../utils.js';
+import Applicant from '../models/applicationModel.js';
+import { generateToken , isAdmin , isAuth } from '../utils.js';
+import data from '../data.js';
+import Mentor from '../models/mentorModel.js'
 
-const applcantRouter = express.Router();
+const applicantRouter = express.Router();
+
+applicantRouter.get('/seed',  expressAsyncHandler (async(req, res) => {
+  // await User.remove({});
+  const createdApplicants = await Applicant.insertMany(data.applicants);
+  res.send({ createdApplicants });
+}));
 
 applicantRouter.post('/register', expressAsyncHandler (async(req, res) => {
     const applicant = new Applicant ({
@@ -82,3 +90,6 @@ applicantRouter.get(
       }
     })
   );
+
+
+  export default applicantRouter;
