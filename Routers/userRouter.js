@@ -194,6 +194,22 @@ userRouter.put(
   );
 
 
+  userRouter.get('/cancel/:id',isAuth,expressAsyncHandler(async (req, res) =>{
+    const user=await User.findById(req.params.id)
+    const mentorId=user.mentor
+    const mentor=await Mentor.findById(mentorId)
+    if(mentor.mentee!=null){
+      mentor.mentee=null
+      const updatedMentor=await mentor.save()
+    }
+    if(user.mentor!=null){
+      user.mentor=null
+      const updatedUser=await user.save()
+    }
+    res.send({message:"updated successully"})
+
+  }))
+
   userRouter.get('/find/:id',isAuth,expressAsyncHandler(async (req, res) =>{
     const user = await User.findById(req.params.id);
     const mentors=await Mentor.find({})

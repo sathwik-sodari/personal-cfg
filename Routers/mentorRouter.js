@@ -51,4 +51,21 @@ mentorRouter.post('/signin', expressAsyncHandler (async(req, res) => {
   res.status(401).send({ message: 'Invalid email or password' });
 }));
 
+mentorRouter.get('/cancel/:id',isAuth,expressAsyncHandler(async (req, res) =>{
+  const mentor=await Mentor.findById(req.params.id)
+  const menteeId=mentor.mentee
+  const mentee=await User.findById(menteeId)
+  if(mentor.mentee!=null){
+    mentor.mentee=null
+    const updatedMentor=await mentor.save()
+  }
+  if(mentee.mentor!=null){
+    user.mentor=null
+    const updatedUser=await mentee.save()
+  }
+  res.send({message:"updated successully"})
+
+}))
+
+
 export default mentorRouter;
