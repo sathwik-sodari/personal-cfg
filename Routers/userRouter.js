@@ -43,8 +43,20 @@ userRouter.post('/signin', expressAsyncHandler (async(req, res) => {
 
 userRouter.post('/register', expressAsyncHandler (async(req, res) => {
     const user = new User ({
-        name: req.body.name, 
-        email: req.body.email, 
+        name: req.body.name,
+        email: req.body.email,
+        fulladdress: req.body.fulladdress,
+        city: req.body.city,
+        state: req.body.state,
+        gender: req.body.gender,
+        pincode: req.body.pincode,
+        phoneNumber: req.body.phoneNumber,
+        hobbies: req.body.hobbies,
+        careerPref: req.body.careerPref,
+        firstLang:req.body.firstLang,
+        secondLang: req.body.secondLang,
+        genderPref: req.body.genderPref,
+        isAdmin: req.body.isAdmin,
         password: bcrypt.hashSync(req.body.password, 8),
     });
     const createdUser = await user.save();
@@ -52,6 +64,17 @@ userRouter.post('/register', expressAsyncHandler (async(req, res) => {
         _id: createdUser._id,
         name: createdUser.name,
         email: createdUser.email,
+        fulladdress: createdUser.fulladdress,
+        city: createdUser.city,
+        state: createdUser.state,
+        gender: createdUser.gender,
+        pincode: req.body.pincode,
+        phoneNumber: createdUser.phoneNumber,
+        hobbies: createdUser.hobbies,
+        careerPref: createdUser.careerPref,
+        firstLang:createdUser.firstLang,
+        secondLang: createdUser.secondLang,
+        genderPref: createdUser.genderPref,
         isAdmin: createdUser.isAdmin,
         token: generateToken(createdUser),
     });
@@ -74,6 +97,17 @@ userRouter.put(
       if (user) {
         user.name = req.body.name || user.name;
         user.email = req.body.email || user.email;
+        fulladdress = req.body.fulladdress || user;
+        city = req.body.city || user.city;
+        state = req.body.state || user.state;
+        gender = req.body.gender || user.gender;
+        pincode = req.body.pincode || user.pincode;
+        phoneNumber = req.body.phoneNumber || user.phonenumber;
+        hobbies = req.body.hobbies || user.hobbies;
+        careerPref = req.body.careerPref || user.careerPref;
+        firstLang =req.body.firstLang || user.firstLang;
+        secondLang = req.body.secondLang || user.secondLang;
+        genderPref = req.body.genderPref || user.genderPref;
         if (req.body.password) {
           user.password = bcrypt.hashSync(req.body.password, 8);
         }
