@@ -14,6 +14,31 @@ applicantRouter.get('/seed',  expressAsyncHandler (async(req, res) => {
   res.send({ createdApplicants });
 }));
 
+applicantRouter.get('/accept/:id',expressAsyncHandler (async(req, res) =>{
+  const id=req.params.id
+  const applicant=await Applicant.findByIdAndDelete(id)
+  const mentor=new Mentor({
+    name: applicant.name,
+    email: applicant.email,
+    fulladdress: applicant.fulladdress,
+    city: applicant.city,
+    state: applicant.state,
+    gender: applicant.gender,
+    pincode: applicant.pincode,
+    phoneNumber: applicant.phoneNumber,
+    hobbies: applicant.hobbies,
+    career: applicant.career,
+    firstLang:applicant.firstLang,
+    secondLang: applicant.secondLang,
+    qualification: applicant.qualification,
+    isAdmin: applicant.isAdmin,
+    password: applicant.password,
+  })
+  const newMentor=await mentor.save()
+  res.send({mentor:newMentor})
+  
+}))
+
 applicantRouter.post('/register', expressAsyncHandler (async(req, res) => {
     const applicant = new Applicant ({
         name: req.body.name,
@@ -79,7 +104,7 @@ applicantRouter.get(
     expressAsyncHandler(async (req, res) => {
       const applicant = await Applicant.findById(req.params.id);
       if (applicant) {
-        if (user.email === 'admin@example.com') {
+        if (applicant.email === 'admin@example.com') {
           res.status(400).send({ message: 'Can Not Delete Admin' });
           return;
         }
