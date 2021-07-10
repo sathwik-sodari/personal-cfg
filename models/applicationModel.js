@@ -17,6 +17,7 @@ const applicantSchema  = new mongoose.Schema(
         secondLang: {type:String, required: true},
         qualification: {type: String, required: true},
         isAdmin: { type: Boolean, default: false, required: true},
+        mentee: { type: mongoose.Schema.Types.ObjectId, ref: 'User',default:null },
     },
     {
         timestamps: true,
