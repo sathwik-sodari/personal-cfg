@@ -271,6 +271,7 @@ userRouter.put(
       return b.score-a.score
     })
     // console.log(dupMentors)
+    dupMentors.slice(0,3);
     res.send({mentors:dupMentors})
 
   }));

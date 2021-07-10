@@ -29,13 +29,14 @@ export class RegisterMentorComponent implements OnInit {
       
     console.log(data)
 
-    this.us. userMentorRegister(data).subscribe(res=>{
-      if(res.message === "user creation successfull")
+    this.us.userMentorRegister(data).subscribe(res=>{
+      if(res.message === "mentor application successfull")
       {
-        alert("user creation succesfull")
+        alert("mentor application successfull")
       }
 
       else{
+        
         alert(`res is ${res.message}`)
       }
     }),err=>{

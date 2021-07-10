@@ -25,6 +25,7 @@ mentorRouter.get(
 
 mentorRouter.post('/signin', expressAsyncHandler (async(req, res) => {
   const mentor = await Mentor.findOne({ email: req.body.email });
+
   if(mentor){
       if(bcrypt.compareSync(req.body.password, mentor.password)){
           res.send({
@@ -50,6 +51,8 @@ mentorRouter.post('/signin', expressAsyncHandler (async(req, res) => {
   }
   res.status(401).send({ message: 'Invalid email or password' });
 }));
+
+
 
 mentorRouter.get('/cancel/:id',isAuth,expressAsyncHandler(async (req, res) =>{
   const mentor=await Mentor.findById(req.params.id)

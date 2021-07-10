@@ -6,13 +6,19 @@ import { generateToken , isAdmin , isAuth } from '../utils.js';
 import data from '../data.js';
 import Mentor from '../models/mentorModel.js'
 
+
+
 const applicantRouter = express.Router();
+
+applicantRouter.use(express.json());
 
 applicantRouter.get('/seed',  expressAsyncHandler (async(req, res) => {
   // await User.remove({});
   const createdApplicants = await Applicant.insertMany(data.applicants);
   res.send({ createdApplicants });
 }));
+
+
 
 applicantRouter.get('/accept/:id',expressAsyncHandler (async(req, res) =>{
   const id=req.params.id
@@ -39,8 +45,11 @@ applicantRouter.get('/accept/:id',expressAsyncHandler (async(req, res) =>{
   
 }))
 
-applicantRouter.post('/register', expressAsyncHandler (async(req, res) => {
-    const applicant = new Applicant ({
+
+
+applicantRouter.post('/register', expressAsyncHandler(async(req, res) => {
+
+    const applicant = new Applicant({
         name: req.body.name,
         email: req.body.email,
         fulladdress: req.body.fulladdress,
@@ -57,6 +66,16 @@ applicantRouter.post('/register', expressAsyncHandler (async(req, res) => {
         isAdmin: req.body.isAdmin,
         password: bcrypt.hashSync(req.body.password, 8),
     });
+
+    const existedUser = await Applicant.findOne({email:applicant.email})
+
+    if(existedUser)
+    {
+      res.send({message:"application already sent"})
+    }
+
+    else{
+      
     const createdApplicant = await applicant.save();
     res.send({
         _id: createdApplicant._id,
@@ -75,8 +94,12 @@ applicantRouter.post('/register', expressAsyncHandler (async(req, res) => {
         qualification: createdApplicant.qualification,
         isAdmin: createdApplicant.isAdmin,
         token: generateToken(createdUser),
+        message:"mentor application successfull"
     });
+
+  }
 }));
+
 
 applicantRouter.get('/:id', expressAsyncHandler(async(req, res) => {
     const applicant = await Applicant.findById(req.params.id);
@@ -86,6 +109,7 @@ applicantRouter.get('/:id', expressAsyncHandler(async(req, res) => {
         res.status(404).send({ message: 'Applicant Not Found' });
     }
 }));
+
 
 applicantRouter.get(
     '/',

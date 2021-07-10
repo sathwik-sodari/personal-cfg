@@ -11,15 +11,20 @@
                     <form class="form-group" #myref="ngForm" (ngSubmit)="onSubmit(myref.value)">
                        
                         <div class="row">
-                            <input type="text" name="name" id="name" class="form__input" placeholder=" Name" ngModel>
+                            <input type="text" name="name" id="name" class="form__input" placeholder="Name" ngModel>
                         </div>
                         <div class="row">
-                            <input type="email" name="emailid" id="emailid" class="form__input" placeholder="Email address" ngModel>
+                            <input type="email" name="email" id="emailid" class="form__input" placeholder="Email address" ngModel>
                         </div>
                         <div class="row">
                             <!-- <span class="fa fa-lock"></span> -->
                             <input type="password" name="password" id="password" class="form__input" placeholder="Password" ngModel> 
                         </div>
+
+                        <div class="row">
+                          <input type="text" name="fulladdress" id="fulladdress" class="form__input" placeholder=" Full address" ngModel>
+                      </div>
+
                         <div class="row">
                             <input type="text" name="city" id="city" class="form__input" placeholder=" City" ngModel>
                         </div>
@@ -37,9 +42,9 @@
 
                         <div class="form-group m-2">
                             <label for="Career m-2" >Career</label>
-                            <select class="form-control" id="Career" name="Career" ngModel>
+                            <select class="form-control" id="Career" name="career" ngModel>
                               <option value="Medical">Medical</option>
-                              <option value="Non-medica">Non-medical</option>
+                              <option value="Non-medical">Non-medical</option>
                               <option value="Commerce">Commerce</option>
                               <option value="Humanities">Humanities</option>
                               <option value="Not decided">Not decided</option>
@@ -61,7 +66,7 @@
 
                           <div class="form-group m-2">
                             <label for="exampleFormControlSelect1 m-2">First Language</label>
-                            <select class="form-control" id="exampleFormControlSelect1"  name="FirstLanguage" ngModel> 
+                            <select class="form-control" id="exampleFormControlSelect1"  name="firstLang" ngModel> 
                               <option value="English">English</option>
                               <option value="Hindi">Hindi</option>
                               <option value="Telugu">Telugu</option>
@@ -74,7 +79,7 @@
 
                           <div class="form-group m-2">
                             <label for="exampleFormControlSelect1 m-2">Second Language </label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="SecondLanguage" ngModel> 
+                            <select class="form-control" id="exampleFormControlSelect1" name="secondLang" ngModel> 
                                 <option value="English">English</option>
                                 <option value="Hindi">Hindi</option>
                                 <option value="Telugu">Telugu</option>
@@ -86,7 +91,7 @@
 
                           <div class="form-group m-2">
                             <label for="exampleFormControlSelect1 m-2">State</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="State" ngModel>
+                            <select class="form-control" id="exampleFormControlSelect1" name="state" ngModel>
                             
 
 
@@ -98,7 +103,7 @@
 
                          <div class="form-group">
                             <label for="hobbies">Hobbies</label>
-                            <textarea class="form-control" id="hobbies" rows="3"></textarea>
+                            <textarea class="form-control" id="hobbies" name="hobbies" rows="3" ngModel></textarea>
                           </div>
 
 

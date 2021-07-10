@@ -19,9 +19,11 @@ export class UserService {
 
  userMentorRegister(data) : Observable <any>
  {
-   return this.hc.post('/api/users/register',data);
+   return this.hc.post('/api/applicants/register',data);
    
  }
+
+
  
 
  userLogin(data): Observable <any>
