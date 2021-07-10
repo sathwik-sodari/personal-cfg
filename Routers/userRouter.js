@@ -194,7 +194,7 @@ userRouter.put(
   );
 
 
-  userRouter.get('/find/:id',expressAsyncHandler(async (req, res) =>{
+  userRouter.get('/find/:id',isAuth,expressAsyncHandler(async (req, res) =>{
     const user = await User.findById(req.params.id);
     const mentors=await Mentor.find({})
     const totalMentors=mentors.length
