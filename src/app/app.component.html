@@ -1,0 +1,50 @@
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #004b4b;" >
+    
+        <div class="container-fluid p-2 "  >
+            
+          <a class="navbar-brand" href="#" style="font-weight:bold;color: white;"><i class="fab fa-product-hunt me-1 ms-3"  ></i>CLAYLAB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"  >
+            <span class="navbar-toggler-icon" style="color:white;"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color:white;">
+            <ul class="navbar-nav ms-auto  mb-lg-0 " >
+              <li class="nav-item">
+                <a class="nav-link" routerLink="home" routerLinkActive="active" >Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link " routerLink="login" routerLinkActive="active">Login</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link " routerLink="contactus" routerLinkActive="active">Contactus</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link " routerLink="product" routerLinkActive="active">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " routerLink="users" routerLinkActive="active">Users</a>
+              </li>
+            </ul>
+      
+          </div>
+        </div>
+      </nav>
+
+
+<!-- nest products component -->
+<div class="container-fluid" style="min-height: 30em">
+    <router-outlet></router-outlet>
+  </div>
+      
+
+<div>
+<app-footer></app-footer>
+</div>
+</div>

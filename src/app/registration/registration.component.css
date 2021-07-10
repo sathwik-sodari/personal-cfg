@@ -1,0 +1,19 @@
+
+.btnsub{
+	transition: all .5s ease;
+	width: 70%;
+	border-radius: 30px;
+	color:#008080;
+	font-weight: 600;
+	background-color: #fff;
+	border: 1px solid #008080;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+.btnsub:hover, .btnsub:focus{
+	background-color: #008080;
+	color:#fff;
+}
+
+
+

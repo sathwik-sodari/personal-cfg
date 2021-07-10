@@ -1,0 +1,40 @@
+<div class="container-fluid mt-1 pt-3 login">
+    <div class="row main-content  text-center">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form shadow-lg ">
+            <div class="container-fluid">
+                <div class="row mt-5">
+                    <h2>Log In</h2>
+                </div>
+                <div class="row">
+
+                    <form class="form-group" #myref="ngForm" (ngSubmit)="onSubmit(myref.value)">
+
+                        <div class="row">
+
+                            <input type="email" name="email" id="email" class="form__input" placeholder="email" ngModel>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- <span class="fa fa-lock"></span> -->
+                            <input type="password" name="password" id="password" class="form__input" placeholder="Password" ngModel>
+                        </div>
+                       
+                        <div class="row d-inline mx-auto">
+
+                            
+                            <button type="submit" class="btn btnsub">Submit</button>
+
+                        </div>
+                    </form>
+
+                </div>
+                <div class="row">
+                    <p>Don't have an account? <button class="btn btn-link btn-outline-light" (click)=MoveToRegister()>Register Here</button></p>
+                </div>
+            
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
