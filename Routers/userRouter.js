@@ -4,6 +4,7 @@ import data from '../data.js';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/menteeModel.js'
 import { generateToken, isAdmin, isAuth } from '../utils.js';
+import Mentor from '../models/mentorModel.js'
 
 const userRouter = express.Router();
 
@@ -191,5 +192,47 @@ userRouter.put(
       }
     })
   );
+
+
+  userRouter.get('/find/:id',expressAsyncHandler(async (req, res) =>{
+    const user = await User.findById(req.params.id);
+    const mentors=await Mentor.find({})
+    const totalMentors=mentors.length
+    const score=new Array(totalMentors).fill(0)
+    var dupMentors=[]
+    mentors.forEach((mentor,index)=>{
+      mentor.score=0
+      if(mentor.mentee===null){
+        if(user.genderPref==='does not matter'){
+          mentor.score+=10
+        }
+        else if(user.genderPref===mentor.gender){
+          mentor.score+=10
+        }
+        if(user.careerPref===mentor.career){
+          mentor.score+=8
+        }
+        if(user.firstLang===mentor.firstLang || user.firstLang===mentor.secondLang || user.secondLang===mentor.firstLang || user.secondLang===mentor.secondLang){
+          mentor.score+=6
+        }
+        
+        if(user.city===mentor.city){
+          mentor.score+=4
+        }
+        else if(user.state===mentor.state){
+          mentor.score+=3
+        }
+      } 
+      dupMentors.push(mentor)
+      console.log(mentor.score)
+    })
+
+    dupMentors.sort((a,b)=>{
+      return b.score-a.score
+    })
+    // console.log(dupMentors)
+    res.send({mentors:dupMentors})
+
+  }))
 
 export default userRouter;

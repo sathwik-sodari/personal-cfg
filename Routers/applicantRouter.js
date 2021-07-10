@@ -4,6 +4,7 @@ import expressAsyncHandler from 'express-async-handler';
 import Applicant from '../models/applicationModel.js';
 import { generateToken , isAdmin , isAuth } from '../utils.js';
 import data from '../data.js';
+import Mentor from '../models/mentorModel.js'
 
 const applicantRouter = express.Router();
 

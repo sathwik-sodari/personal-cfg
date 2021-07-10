@@ -5,7 +5,7 @@ const data = {
     users: [
         {
             name: 'Prachi',
-            email: 'admin@gmail.com',
+            email: 'admin12@gmail.com',
             password: bcrypt.hashSync('1234', 8),
             fulladdress:"a-2 , efewnf effr rfgerg rf erwee",
             city: 'Patiala',
@@ -18,7 +18,7 @@ const data = {
             firstLang: 'english',
             secondLang: 'hindi',
             genderPref: 'female',
-            isAdmin: true,
+            isAdmin: false,
             // mentor:'' 
         },
         {
@@ -43,16 +43,16 @@ const data = {
     mentors:[
         {
             name: 'Prachimentor',
-            email: 'mentor1@gmail.com',
+            email: 'mentor4@gmail.com',
             password: bcrypt.hashSync('1234', 8),
             fulladdress:"a-2 , efewnf effr rfgerg rf erwee",
-            city: 'Patiala',
-            state: 'Punjab',
+            city: 'Delhi',
+            state: 'Delhi',
             gender: 'female',
             pincode: 400092,
             phoneNumber: '1234567890',
             hobbies: ['sing','dance'],
-            career: 'science',
+            career: 'commerce',
             firstLang: 'english',
             secondLang: 'french',
             qualification:'+1',
@@ -61,12 +61,12 @@ const data = {
         },
         {
             name: 'rachimentor',
-            email: 'mentor2@gmail.com',
+            email: 'mentor3@gmail.com',
             password: bcrypt.hashSync('1234', 8),
             fulladdress:"a-2 , efewnf effr rfgerg rf erwee",
             city: 'Patiala',
             state: 'Punjab',
-            gender: 'female',
+            gender: 'male',
             pincode: 400092,
             phoneNumber: '1234567890',
             hobbies: ['sing','dance'],
