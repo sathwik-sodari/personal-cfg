@@ -22,7 +22,10 @@ export class LoginComponent implements OnInit {
   onSubmit(data){
     console.log(data)
     this.us.userLogin(data).subscribe(res=>{
-      if(res.message==="login success")
+
+      if(data.typeOfUser==="Mentee")
+      {
+      if(res.message==="mentee login success")
       {
         alert(`${res.message}`)
         localStorage.setItem("userObj",JSON.stringify(res.userObj));
@@ -31,6 +34,18 @@ export class LoginComponent implements OnInit {
       else{
         alert(`${res.message}`)
       }
+    }
+
+    //mentor login
+    else if(data.typeOfUser==="Mentor")
+    {
+      
+    }
+
+    else if(data.typeOfUser==="Admin")
+    {
+
+    }
     },
     err=>{
       alert("login error");

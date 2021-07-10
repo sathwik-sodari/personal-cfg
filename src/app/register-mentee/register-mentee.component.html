@@ -1,198 +1,251 @@
 
 
 <div class="container-fluid mt-1 pt-3 login">
-    <div class="row main-content   text-muted">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 col-xs-12 col-sm-12 login_form shadow-lg ">
-            <div class="container-fluid">
-                <div class="row mt-5 text-center">
-                    <h2>Create Account</h2>
-                </div>
-                <div class="row">
-                    <form class="form-group" #myref="ngForm" (ngSubmit)="onSubmit(myref.value)">
-                       
-                        <div class="row">
-                            <input type="text" name="name" id="name" class="form__input" placeholder="Name" ngModel>
-                        </div>
-                        
-                        <div class="row">
-                            <input type="email" name="emailid" id="emailid" class="form__input" placeholder="Email address" ngModel>
-                        </div>
+  <div class="row main-content   text-muted">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 col-xs-12 col-sm-12 login_form shadow-lg ">
+          <div class="container-fluid">
+              <div class="row mt-5 text-center">
+                  <h2>Create Account</h2>
+              </div>
+              <div class="row">
+                  <form class="form-group" #myref="ngForm" (ngSubmit)="onSubmit(myref.value)">
+                     
+                      <div class="row">
+                          <input type="text" name="name" id="name" class="form__input" placeholder="Name" ngModel>
+                      </div>
+                      
+                      <div class="row">
+                          <input type="email" name="email" id="emailid" class="form__input" placeholder="Email address" ngModel>
+                      </div>
 
+                
+                    
 
-                        <div class="row">
-                            <!-- <span class="fa fa-lock"></span> -->
-                            <input type="password" name="password" id="password" class="form__input" placeholder="Password" ngModel> 
-                        </div>
-
-            
-                  
-
-                              <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Hobbies</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name ="hobbies" rows="3" ngModel></textarea>
-                              </div>
+                      
+                      <div class="row">
+                        <input type="text" name="pincode" id="pincode" class="form__input" placeholder="Pincode" ngModel>
+                    </div>
 
 
 
-                              <div class="form-group m-2">
-                                <label for="exampleFormControlSelect1 m-2" >Career Preferences</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="CareerPreferences" ngModel>
-                                  <option value="Medical">Medical</option>
-                                  <option value="Non-medical">Non-medical</option>
-                                  <option value="Commerce">Commerce</option>
-                                  <option value="Humanities">Humanities</option>
-                                  <option value="Not decided">Not decided</option>
-                                </select>
-                              </div>
+                      <div class="row">
+                        <input type="text" name="phoneNumber" id="phoneNumber" class="form__input" placeholder="Phone Number" ngModel>
+                    </div>
+                    
+
+
+                      <div class="row">
+                          <!-- <span class="fa fa-lock"></span> -->
+                          <input type="password" name="password" id="password" class="form__input" placeholder="Password" ngModel> 
+                      </div>
+
           
-          
-                              <div class="form-group m-2">
-                                <label for="exampleFormControlSelect1 m-2">Gender Preferences</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="GenderPreferences" ngModel>
-                                  <option value= "Male">Male</option>
-                                  <option value= "Female">Female</option>
-                                  <option value= "None">None</option>
-                                  
-                                </select>
-                              </div>
-          
-          
-          
-          
-                              <div class="form-group m-2">
-                                <label for="exampleFormControlSelect1 m-2">First Language Preference</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name ="FirstLanguagePreference" ngModel>
+                
+                      <div class="row">
+                        <!-- <span class="fa fa-lock"></span> -->
+                        <input type="text" name="fulladdress" id=" fulladdress" class="form__input" placeholder="Address" ngModel> 
+                    </div>
+
+
+                    <div class="row">
+                      <input type="text" name="city" id="city" class="form__input" placeholder="City" ngModel>
+                  </div>
+
+                            <div class="form-group">
+                              <label for="exampleFormControlTextarea1">Hobbies</label>
+                              <textarea class="form-control" id="exampleFormControlTextarea1" name ="hobbies" rows="3" ngModel></textarea>
+                            </div>
+
+                            
+
+
+
+
+
+
+                            <div class="form-group m-2">
+                              <label for="exampleFormControlSelect1 m-2" >Gender</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name="gender" ngModel>
+
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                               
+                              </select>
+                            </div>
+
+                           
+
+                            <div class="form-group m-2">
+                              <label for="exampleFormControlSelect1 m-2" >Career Preferences</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name="careerPref" ngModel>
+                                <option value="Medical">Medical</option>
+                                <option value="Non-medical">Non-medical</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Humanities">Humanities</option>
+                                <option value="Not decided">Not decided</option>
+                              </select>
+                            </div>
+        
+        
+                            <div class="form-group m-2">
+                              <label for="exampleFormControlSelect1 m-2">Gender Preferences</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name="genderPref" ngModel>
+                                <option value= "Male">Male</option>
+                                <option value= "Female">Female</option>
+                                <option value= "does not matter">Does not matter</option>
+                                
+                              </select>
+                            </div>
+        
+        
+        
+        
+                            <div class="form-group m-2">
+                              <label for="exampleFormControlSelect1 m-2">First Language Preference</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name ="firstLang" ngModel>
+                                <option value= "English">English</option>
+                                <option value= "Hindi">Hindi</option>
+                                <option value= "Telugu">Telugu</option>
+                                <option value= "Malyalam">Malyalam</option>
+                                <option value= "Kannada">Kannada</option>
+                              </select>
+                            </div>
+        
+        
+        
+                            <div class="form-group m-2">
+                              <label for="exampleFormControlSelect1 m-2">Second Language preference</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name="secondLang" ngModel>
                                   <option value= "English">English</option>
                                   <option value= "Hindi">Hindi</option>
                                   <option value= "Telugu">Telugu</option>
                                   <option value= "Malyalam">Malyalam</option>
                                   <option value= "Kannada">Kannada</option>
-                                </select>
-                              </div>
-          
-          
-          
-                              <div class="form-group m-2">
-                                <label for="exampleFormControlSelect1 m-2">Second Language preference</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="SecondLanguagePreference" ngModel>
+                              </select>
+                            </div>
+
+
+                            <div class="form-group m-2">
+                              <label for="exampleFormControlSelect1 m-2">State</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name="state" ngModel>
+
+                                <div class="form-group m-2">
+                                  <label for="exampleFormControlSelect1 m-2">First Language Preference</label>
+                                  <select class="form-control" id="exampleFormControlSelect1" name ="firstLang" ngModel>
                                     <option value= "English">English</option>
                                     <option value= "Hindi">Hindi</option>
                                     <option value= "Telugu">Telugu</option>
                                     <option value= "Malyalam">Malyalam</option>
                                     <option value= "Kannada">Kannada</option>
-                                </select>
-                              </div>
-
-
-                              <div class="form-group m-2">
-                                <label for="exampleFormControlSelect1 m-2">State</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="State" ngModel>
-                                
-
-
-                                    <option *ngFor= "let stateName of state_arr" [ngValue]="stateName">{{stateName}}</option>
-                                </select>
-                              </div>
-
-
-          
-
-
-
-
-
-
-                            
+                                  </select>
+                                </div>
+            
                               
-                        
-                       
-                        <div class="row text-center d-block mx-auto ">
-                            <button type="submit" class="btn btnsub ">Submit</button>
-                        </div>
-                    </form>
 
 
-                    <!-- dropdpwn start
-
-                    <div class="form-group m-2">
-                      <label for="exampleFormControlSelect1 m-2" >Career Preferences</label>
-                      <select class="form-control" id="exampleFormControlSelect1"   [(ngModel)]="CareerPreferences">
-                        <option>Medical</option>
-                        <option>Non-medical</option>
-                        <option>Commerce</option>
-                        <option>Humanities</option>
-                        <option>Not decided</option>
-                      </select>
-                    </div>
+                                  <option *ngFor= "let stateName of state_arr" [ngValue]="stateName">{{stateName}}</option>
+                              </select>
+                            </div>
 
 
-                    <div class="form-group m-2">
-                      <label for="exampleFormControlSelect1 m-2">Gender Preferences</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>None</option>
-                        
-                      </select>
-                    </div>
+        
 
 
 
 
-                    <div class="form-group m-2">
-                      <label for="exampleFormControlSelect1 m-2">First Language Preference</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
+
+
+                          
+                            
+                      
+                     
+                      <div class="row text-center d-block mx-auto ">
+                          <button type="submit" class="btn btnsub ">Submit</button>
+                      </div>
+                  </form>
+
+
+                  <!-- dropdpwn start
+
+                  <div class="form-group m-2">
+                    <label for="exampleFormControlSelect1 m-2" >Career Preferences</label>
+                    <select class="form-control" id="exampleFormControlSelect1"   [(ngModel)]="CareerPreferences">
+                      <option>Medical</option>
+                      <option>Non-medical</option>
+                      <option>Commerce</option>
+                      <option>Humanities</option>
+                      <option>Not decided</option>
+                    </select>
+                  </div>
+
+
+                  <div class="form-group m-2">
+                    <label for="exampleFormControlSelect1 m-2">Gender Preferences</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>None</option>
+                      
+                    </select>
+                  </div>
+
+
+
+
+                  <div class="form-group m-2">
+                    <label for="exampleFormControlSelect1 m-2">First Language Preference</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>English</option>
+                      <option>Hindi</option>
+                      <option>Telugu</option>
+                      <option>Malyalam</option>
+                      <option>Kannada</option>
+                    </select>
+                  </div>
+
+
+
+                  <div class="form-group m-2">
+                    <label for="exampleFormControlSelect1 m-2">Second Language preference</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
                         <option>English</option>
                         <option>Hindi</option>
                         <option>Telugu</option>
                         <option>Malyalam</option>
                         <option>Kannada</option>
-                      </select>
-                    </div>
+                    </select>
+                  </div> -->
 
 
-
-                    <div class="form-group m-2">
-                      <label for="exampleFormControlSelect1 m-2">Second Language preference</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                          <option>English</option>
-                          <option>Hindi</option>
-                          <option>Telugu</option>
-                          <option>Malyalam</option>
-                          <option>Kannada</option>
-                      </select>
-                    </div> -->
+                   <!-- dropdpwn end -->
 
 
-                     <!-- dropdpwn end -->
-
-
-                </div>
-                <div class="row">
-                    <p class="text-center" >Sign in? <button class="btn btn-link btn-outline-light" (click)=MoveToLogin()>Click Here</button></p>
-                </div>
-            
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-    </div>
+              </div>
+              <div class="row">
+                  <p class="text-center" >Sign in? <button class="btn btn-link btn-outline-light" (click)=MoveToLogin()>Click Here</button></p>
+              </div>
+          
+          </div>
+          <div class="col-md-2"></div>
+      </div>
+  </div>
 </div>
 
 
 
-
-<!-- CareerPreferences
-
-    public regObj = {
-      name:"",
-      emailid:"",
-      password:"",
-      hobbies:"",
-      CareerPreferences:"",
-      GenderPreferences:"",
-      FirstLanguagePreference:"",
-      SecondLanguagepreference:"",
-
-
-    } -->
+<!-- 
+name: req.body.name,
+email: req.body.email,
+fulladdress: req.body.fulladdress,
+city: req.body.city,
+state: req.body.state,
+gender: req.body.gender,
+pincode: req.body.pincode,
+phoneNumber: req.body.phoneNumber,
+hobbies: req.body.hobbies,
+careerPref: req.body.careerPref,
+firstLang:req.body.firstLang,
+secondLang: req.body.secondLang,
+genderPref: req.body.genderPref,
+password: bcrypt.hashSync(req.body.password, 8), -->

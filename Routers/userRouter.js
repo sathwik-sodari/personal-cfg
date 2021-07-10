@@ -2,10 +2,10 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import data from '../data.js';
 import expressAsyncHandler from 'express-async-handler';
-import User from '../models/userModel.js'
+// import User from '../models/userModel.js'
 import { generateToken, isAdmin, isAuth } from '../utils.js';
 import User from '../models/menteeModel.js'
-import { generateToken, isAdmin, isAuth } from '../utils.js';
+// import { generateToken, isAdmin, isAuth } from '../utils.js';
 import Mentor from '../models/mentorModel.js'
 
 const userRouter = express.Router();
@@ -36,13 +36,22 @@ userRouter.post('/signin', expressAsyncHandler (async(req, res) => {
                 secondLang: user.secondLang,
                 genderPref: user.genderPref,
                 isAdmin: user.isAdmin,
-                token: generateToken(user),
+                userObj :user,
+                token : generateToken(user),
+                message:"mentee login success"
             });
             return;
         }
+        else{
+          res.send({message:"wrong password"})
+        }
+
     }
-    res.status(401).send({ message: 'Invalid email or password' });
+    else{
+    res.send({ message: 'Invalid email or password' });
+    }
 }));
+
 
 userRouter.post('/register', expressAsyncHandler (async(req, res) => {
     const user = new User ({
@@ -62,6 +71,15 @@ userRouter.post('/register', expressAsyncHandler (async(req, res) => {
         isAdmin: req.body.isAdmin,
         password: bcrypt.hashSync(req.body.password, 8),
     });
+
+    const alreadyexisted = await User.findOne({email:user.email})
+
+    if(alreadyexisted)
+    {
+      res.send({message :"user already exists"})
+    }
+    else{
+
     const createdUser = await user.save();
     res.send({
         _id: createdUser._id,
@@ -80,7 +98,11 @@ userRouter.post('/register', expressAsyncHandler (async(req, res) => {
         genderPref: createdUser.genderPref,
         isAdmin: createdUser.isAdmin,
         token: generateToken(createdUser),
+        message :"user creation successfull"
+        
     });
+  }
+
 }));
 
 userRouter.get('/:id', expressAsyncHandler(async(req, res) => {
