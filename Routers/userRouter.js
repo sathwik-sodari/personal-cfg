@@ -251,13 +251,19 @@ userRouter.put(
 
   }));
 
-  userRouter.put('/choose/:id', isAuth,expressAsyncHandler(async (req, res) =>{
+  userRouter.post('/choose/:id',expressAsyncHandler(async (req, res) =>{
     const userId = req.params.id;
     const user = await User.findById(req.params.id);
+    console.log(user)
     const mentorId = req.body._id;
+    console.log(mentorId)
+    console.log(userId)
     const mentor = await Mentor.findById(req.body._id);
+    console.log(mentor)
     user.mentor = mentorId;
     mentor.mentee = userId;
+    const newMentor=await mentor.save()
+    const newUser=await user.save()
     res.send(user);
   }));
 
