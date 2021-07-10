@@ -5,12 +5,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --watch --exec node --experimental-modules server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cfg2india2021/team-76.git",
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+    "url": "git+https://github.com/cfg2india2021/team-76.git" 
   },
   "author": "",
   "license": "ISC",

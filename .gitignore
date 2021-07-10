@@ -1,8 +1,3 @@
-Team*.zip
-team*.zip
-*.pem
-*.ppk
-*.crt
-*.key
-*.ovpn
-node_modules/
+.env
+/node_modules/
+package-lock.json
